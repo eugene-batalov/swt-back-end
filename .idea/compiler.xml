@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="back-end_main" target="1.8" />
       <module name="back-end_test" target="1.8" />
+      <module name="swt-back-end_main" target="1.8" />
+      <module name="swt-back-end_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
