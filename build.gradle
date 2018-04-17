@@ -15,9 +15,17 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+task copySqlImport(type: Copy){
+	from 'src/main/resources'
+	into 'build/classes'
+}
+
+build.dependsOn(copySqlImport)
+
 group = 'heroes'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -28,6 +36,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	runtime('com.h2database:h2')
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("io.jsonwebtoken:jjwt:0.9.0")
+	compile("com.google.code.findbugs:findbugs:3.0.1")
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
